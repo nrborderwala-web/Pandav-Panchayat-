@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="gu"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PANDAV PANCHAYAT - Group Expense &amp; Trip Splitter</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700;800&amp;family=Noto+Sans+Gujarati:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Gujarati"', '"Noto Sans Devanagari"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            saffron: {
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    body {
+      background-color: #f3f4f6;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-card {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Noto Sans Gujarati", "Noto Sans Devanagari", Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.sticky{position:sticky}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-0{left:0px}.left-1\/2{left:50%}.right-0{right:0px}.top-0{top:0px}.top-4{top:1rem}.z-30{z-index:30}.z-50{z-index:50}.z-\[70\]{z-index:70}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-2\.5{margin-bottom:0.625rem}.mb-3{margin-bottom:0.75rem}.mr-1{margin-right:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3\.5{margin-top:0.875rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-16{height:4rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-9{height:2.25rem}.max-h-60{max-height:15rem}.max-h-\[90vh\]{max-height:90vh}.w-1\/2{width:50%}.w-1\/3{width:33.333333%}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-16{width:4rem}.w-2\/3{width:66.666667%}.w-20{width:5rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-3xl{max-width:48rem}.max-w-\[92vw\]{max-width:92vw}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.border-collapse{border-collapse:collapse}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-b-3xl{border-bottom-right-radius:1.5rem;border-bottom-left-radius:1.5rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-\[\#25D366\]\/30{border-color:rgb(37 211 102 / 0.3)}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-amber-200\/70{border-color:rgb(253 230 138 / 0.7)}.border-emerald-100{--tw-border-opacity:1;border-color:rgb(209 250 229 / var(--tw-border-opacity, 1))}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254 / var(--tw-border-opacity, 1))}.border-indigo-300{--tw-border-opacity:1;border-color:rgb(165 180 252 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/15{border-color:rgb(255 255 255 / 0.15)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-brand-700{--tw-border-opacity:1;border-color:rgb(4 120 87 / var(--tw-border-opacity, 1))}.bg-\[\#25D366\]\/15{background-color:rgb(37 211 102 / 0.15)}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-300{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-amber-500\/15{background-color:rgb(245 158 11 / 0.15)}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-brand-50\/70{background-color:rgb(236 253 245 / 0.7)}.bg-brand-700{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-rose-50\/80{background-color:rgb(255 241 242 / 0.8)}.bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-200\/70{background-color:rgb(226 232 240 / 0.7)}.bg-slate-200\/80{background-color:rgb(226 232 240 / 0.8)}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-amber-50{--tw-gradient-from:#fffbeb var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 251 235 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-brand-700{--tw-gradient-from:#047857 var(--tw-gradient-from-position);--tw-gradient-to:rgb(4 120 87 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-brand-800{--tw-gradient-from:#065f46 var(--tw-gradient-from-position);--tw-gradient-to:rgb(6 95 70 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-indigo-50{--tw-gradient-from:#eef2ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(238 242 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-slate-800{--tw-gradient-from:#1e293b var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 41 59 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-brand-700{--tw-gradient-to:rgb(4 120 87 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #047857 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-blue-50{--tw-gradient-to:#eff6ff var(--tw-gradient-to-position)}.to-orange-50{--tw-gradient-to:#fff7ed var(--tw-gradient-to-position)}.to-slate-900{--tw-gradient-to:#0f172a var(--tw-gradient-to-position)}.to-teal-700{--tw-gradient-to:#0f766e var(--tw-gradient-to-position)}.p-0{padding:0px}.p-0\.5{padding:0.125rem}.p-1{padding:0.25rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-28{padding-bottom:7rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pr-1{padding-right:0.25rem}.pt-1{padding-top:0.25rem}.pt-12{padding-top:3rem}.pt-2{padding-top:0.5rem}.pt-3\.5{padding-top:0.875rem}.pt-4{padding-top:1rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-\[\#128C7E\]{--tw-text-opacity:1;color:rgb(18 140 126 / var(--tw-text-opacity, 1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-brand-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-brand-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-brand-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-emerald-100{--tw-text-opacity:1;color:rgb(209 250 229 / var(--tw-text-opacity, 1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-indigo-800{--tw-text-opacity:1;color:rgb(55 48 163 / var(--tw-text-opacity, 1))}.text-indigo-900{--tw-text-opacity:1;color:rgb(49 46 129 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-\[\#25D366\]\/25:hover{background-color:rgb(37 211 102 / 0.25)}.hover\:bg-brand-800:hover{--tw-bg-opacity:1;background-color:rgb(6 95 70 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-100:hover{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-100:hover{--tw-bg-opacity:1;background-color:rgb(224 231 255 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-700:hover{--tw-bg-opacity:1;background-color:rgb(67 56 202 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-100:hover{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-700:hover{--tw-bg-opacity:1;background-color:rgb(190 18 60 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-300:hover{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:bg-white\/25:hover{background-color:rgb(255 255 255 / 0.25)}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:from-brand-800:hover{--tw-gradient-from:#065f46 var(--tw-gradient-from-position);--tw-gradient-to:rgb(6 95 70 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-teal-800:hover{--tw-gradient-to:#115e59 var(--tw-gradient-to-position)}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:border-brand-600:focus{--tw-border-opacity:1;border-color:rgb(5 150 105 / var(--tw-border-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-brand-500\/20:focus{--tw-ring-color:rgb(16 185 129 / 0.2)}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:items-center{align-items:center}.sm\:gap-4{gap:1rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-4{padding:1rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}</style></head>
+<body class="text-slate-800 antialiased pb-28">
+
+  <!-- Toast Notification Banner -->
+  <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[70] hidden transition-all duration-300 transform scale-95 opacity-0 max-w-[92vw]">
+    <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-sm font-medium border border-slate-700">
+      <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+      <span id="toast-msg">સંદેશ</span>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION SHELL -->
+  <div id="protected-app-shell">
+
+  <!-- Android Style App Top AppBar -->
+  <header class="bg-gradient-to-r from-brand-800 via-brand-700 to-teal-700 text-white sticky top-0 z-30 shadow-md rounded-b-3xl">
+    <div class="max-w-3xl mx-auto px-4 pt-3.5 pb-3">
+      <!-- App Status & Language Strip -->
+      <div class="flex items-center justify-between gap-2 bg-black/20 backdrop-blur-xs rounded-2xl px-3 py-1.5 mb-3 border border-white/10">
+        <div class="flex items-center gap-2 min-w-0">
+          <div class="w-6 h-6 rounded-full bg-amber-300 text-brand-950 font-extrabold text-xs flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt text-[10px]"></i>
+          </div>
+          <div class="truncate">
+            <span id="user-display-name" class="text-xs font-bold text-white block truncate">Cloud Sync Mode</span>
+            <span id="sync-status-badge" class="text-[10px] text-emerald-200 flex items-center gap-1"><i class="fa-solid fa-cloud-slash text-rose-300"></i> ઓફલાઇન મોડ</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <!-- Language Switcher Pills -->
+          <div class="inline-flex bg-white/10 p-0.5 rounded-xl border border-white/15">
+            <button type="button" onclick="setLanguage('gu')" class="lang-btn-gu px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition bg-white text-brand-900 shadow-xs">ગુ</button>
+            <button type="button" onclick="setLanguage('hi')" class="lang-btn-hi px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition text-white hover:bg-white/10">हि</button>
+            <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition text-white hover:bg-white/10">EN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-xl shadow-inner border border-white/20">
+            <i class="fa-solid fa-wallet text-amber-300"></i>
+          </div>
+          <div>
+            <h1 data-i18n="appTitle" class="text-lg sm:text-xl font-extrabold tracking-tight leading-tight">PANDAV PANCHAYAT</h1>
+            <p data-i18n="appSubtitle" class="text-xs text-emerald-100 font-medium">Group Expense &amp; Trip Splitter</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <button onclick="openNewGroupModal()" class="bg-white/15 hover:bg-white/25 active:scale-95 transition px-3 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-white/20" data-i18n-title="newGroupTitle" title="નવું ગ્રુપ બનાવો">
+            <i class="fa-solid fa-folder-plus"></i>
+            <span data-i18n="newGroupBtn">નવું ગ્રુપ</span>
+          </button>
+          <button onclick="openSettingsModal()" class="w-9 h-9 rounded-xl bg-white/15 hover:bg-white/25 active:scale-95 transition flex items-center justify-center border border-white/20" data-i18n-title="optionsTitle" title="વિકલ્પો">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Group Switcher Tabs -->
+      <div id="group-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar mt-3.5 pb-1"></div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="main-app-content" class="max-w-3xl mx-auto px-4 pt-4 space-y-5 hidden">
+
+    <!-- Current Group Title Banner & Quick Actions -->
+    <section class="bg-white rounded-2xl p-4 material-card border border-slate-100 flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <h2 id="current-group-name" class="text-lg font-bold text-slate-900">-</h2>
+          <span id="current-group-place" class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800"></span>
+        </div>
+        <p data-i18n="groupBannerDesc" class="text-xs text-slate-500 mt-0.5">વ્યક્તિદીઠ સરખો ખર્ચ અને પરિવાર મુજબ હિસાબ</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="openMembersModal()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-users-gear text-brand-700"></i>
+          <span data-i18n="membersBtn">સભ્યો / સંખ્યા</span>
+        </button>
+        <button onclick="shareOnWhatsApp()" class="px-3 py-2 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 active:scale-95 text-[#128C7E] text-xs font-bold flex items-center gap-1.5 transition border border-[#25D366]/30">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span data-i18n="shareBtn">શેર કરો</span>
+        </button>
+        <button onclick="openDeleteGroupModal()" class="px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 active:scale-95 text-rose-700 text-xs font-bold flex items-center gap-1.5 transition border border-rose-200" data-i18n-title="deleteGroupTitle" title="આ ગ્રુપ ડિલીટ કરો">
+          <i class="fa-solid fa-trash-can"></i>
+          <span data-i18n="deleteGroupBtn">ગ્રુપ ડિલીટ કરો</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3 Key Summary Cards -->
+    <section class="grid grid-cols-3 gap-2.5 sm:gap-4">
+      <div class="bg-white rounded-2xl p-3.5 material-card border border-slate-100 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span data-i18n="overallExpenseLabel" class="text-[11px] sm:text-xs font-semibold text-slate-500">કુલ ખર્ચ</span>
+          <span class="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+          </span>
+        </div>
+        <div id="stat-total-expense" class="text-base sm:text-xl font-extrabold text-slate-900 mt-2">₹0</div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-3.5 material-card border border-slate-100 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span data-i18n="totalPersonsLabel" class="text-[11px] sm:text-xs font-semibold text-slate-500">કુલ વ્યક્તિ</span>
+          <span class="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-user-group"></i>
+          </span>
+        </div>
+        <div id="stat-total-members" class="text-base sm:text-xl font-extrabold text-slate-900 mt-2">0</div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-3.5 material-card border border-amber-200/70 flex flex-col justify-between">
+        <div class="flex items-center justify-between">
+          <span data-i18n="perPersonLabel" class="text-[11px] sm:text-xs font-bold text-amber-900">વ્યક્તિદીઠ ખર્ચ</span>
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-700 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-calculator"></i>
+          </span>
+        </div>
+        <div id="stat-per-person" class="text-base sm:text-xl font-extrabold text-amber-800 mt-2">₹0</div>
+      </div>
+    </section>
+
+    <!-- View Mode Sub-Tabs -->
+    <section class="bg-slate-200/80 p-1 rounded-2xl grid grid-cols-3 gap-1">
+      <button id="subtab-balance" onclick="switchSubTab('balance')" class="py-2.5 px-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-brand-800 shadow-sm transition">
+        <i class="fa-solid fa-scale-balanced mr-1"></i> <span data-i18n="tabBalance">ચોખ્ખો હિસાબ</span>
+      </button>
+      <button id="subtab-expenses" onclick="switchSubTab('expenses')" class="py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+        <i class="fa-solid fa-receipt mr-1"></i> <span data-i18n="tabExpenses">ખર્ચ યાદી</span>
+      </button>
+      <button id="subtab-excel" onclick="switchSubTab('excel')" class="py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+        <i class="fa-solid fa-table mr-1"></i> <span data-i18n="tabExcel">એક્સેલ ટેબલ</span>
+      </button>
+    </section>
+
+    <!-- TAB 1: Net Balance -->
+    <div id="view-balance" class="space-y-4">
+      <div id="smart-settlement-card" class="bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-2xl p-4 shadow-md">
+        <div class="flex items-center justify-between mb-2.5">
+          <h3 class="text-sm font-bold flex items-center gap-2 text-amber-300">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <span data-i18n="smartSettlementTitle">કોણે કોને રકમ ચૂકવવાની બાકી છે?</span>
+          </h3>
+          <button onclick="copySettlementText()" class="text-[11px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-lg font-medium transition">
+            <i class="fa-regular fa-copy mr-1"></i><span data-i18n="copyBtn">કોપી કરો</span>
+          </button>
+        </div>
+        <div id="settlement-list" class="space-y-2 text-xs sm:text-sm"></div>
+      </div>
+
+      <div class="flex items-center justify-between px-1">
+        <h3 data-i18n="familyBalanceHeading" class="text-sm font-bold text-slate-700">પરિવાર મુજબ નેટ બેલેન્સ</h3>
+        <span data-i18n="paidMinusShareFormula" class="text-[11px] text-slate-500">ચૂકવેલ - હિસ્સો</span>
+      </div>
+      <div id="member-balance-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+    </div>
+
+    <!-- TAB 2: Expenses List -->
+    <div id="view-expenses" class="hidden space-y-3">
+      <div class="flex items-center justify-between px-1">
+        <h3 class="text-sm font-bold text-slate-700"><span data-i18n="allExpensesHeading">તમામ ખર્ચની એન્ટ્રીઓ</span> (<span id="expense-count-badge">0</span>)</h3>
+        <button onclick="openExpenseModal()" data-i18n="addNewExpenseLink" class="text-xs font-bold text-brand-700 hover:underline">+ ખર્ચ ઉમેરો</button>
+      </div>
+      <div id="expense-cards-list" class="space-y-2.5"></div>
+    </div>
+
+    <!-- TAB 3: Excel Matrix Table View -->
+    <div id="view-excel" class="hidden space-y-3">
+      <div class="bg-white rounded-2xl material-card border border-slate-200 overflow-hidden">
+        <div class="p-3 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-file-excel text-emerald-600 text-base"></i>
+            <span data-i18n="excelViewBanner">એક્સેલ શીટ વ્યૂ (આડું સ્ક્રોલ કરો)</span>
+          </span>
+          <button onclick="exportToCSV()" class="text-xs bg-emerald-600 text-white px-2.5 py-1.5 rounded-lg font-semibold hover:bg-emerald-700 transition">
+            <i class="fa-solid fa-download mr-1"></i> <span data-i18n="csvDownloadBtn">CSV ડાઉનલોડ</span>
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table id="excel-matrix-table" class="w-full text-xs text-right border-collapse whitespace-nowrap"></table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Empty State when no groups exist -->
+  <div id="no-groups-empty-state" class="max-w-md mx-auto px-4 pt-12 text-center">
+    <div class="bg-white rounded-3xl p-8 material-card border border-slate-200 space-y-4">
+      <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto text-3xl border border-amber-200">
+        <i class="fa-solid fa-folder-open"></i>
+      </div>
+      <h2 data-i18n="noGroupsTitle" class="text-lg font-extrabold text-slate-900">કોઈ ગ્રુપ ઉપલબ્ધ નથી</h2>
+      <p data-i18n="noGroupsDesc" class="text-xs text-slate-500 leading-relaxed">ખર્ચ વહેંચવા માટે તમારું પહેલું ગ્રુપ અથવા ટ્રીપ બનાવીને શરૂઆત કરો.</p>
+      <div class="pt-2 flex flex-col gap-2.5">
+        <button onclick="openNewGroupModal()" class="w-full py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition">
+          <i class="fa-solid fa-folder-plus"></i>
+          <span data-i18n="createNewGroupEmptyBtn">+ નવું ગ્રુપ બનાવો</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Bottom Action Bar / FAB -->
+  <div id="bottom-action-bar" class="fixed bottom-4 left-0 right-0 z-30 px-4 pointer-events-none hidden">
+    <div class="max-w-3xl mx-auto flex justify-end">
+      <button onclick="openExpenseModal()" class="pointer-events-auto bg-gradient-to-r from-brand-700 to-teal-700 hover:from-brand-800 hover:to-teal-800 active:scale-95 text-white font-extrabold text-sm px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-2 border border-white/20 transition">
+        <i class="fa-solid fa-plus text-base"></i>
+        <span data-i18n="fabAddExpense">ખર્ચ ઉમેરો</span>
+      </button>
+    </div>
+  </div>
+
+  </div> <!-- End of #protected-app-shell -->
+
+  <!-- =================MODAL 1: Add / Edit Expense================ -->
+  <div id="expense-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <h3 id="expense-modal-title" class="text-base font-extrabold text-slate-900">Add New Expense</h3>
+        <button onclick="closeModal('expense-modal')" class="w-8 h-8 rounded-full bg-slate-200/70 hover:bg-slate-300 flex items-center justify-center text-slate-600">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="expense-form" onsubmit="saveExpense(event)" class="p-5 overflow-y-auto space-y-4">
+        <input type="hidden" id="edit-expense-id" value="">
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="sm:col-span-2">
+            <label data-i18n="expTitleLabel" class="block text-xs font-bold text-slate-700 mb-1">ખર્ચની વિગત *</label>
+            <input type="text" id="exp-title" required="" data-i18n-placeholder="expTitlePlaceholder" placeholder="દા.ત. ચા, પેટ્રોલ, હોટેલ..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none text-sm font-medium">
+          </div>
+          <div>
+            <label data-i18n="expDateLabel" class="block text-xs font-bold text-slate-700 mb-1">તારીખ (વૈકલ્પિક)</label>
+            <input type="date" id="exp-date" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:border-brand-600 outline-none text-sm">
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label data-i18n="whoPaidLabel" class="text-xs font-bold text-slate-700">કોણે કેટલા ચૂકવ્યા? (₹)</label>
+            <span id="modal-live-total" class="text-xs font-extrabold text-brand-700 bg-brand-50 px-2.5 py-1 rounded-lg">Total: ₹0</span>
+          </div>
+          <div id="expense-member-inputs" class="space-y-2 max-h-60 overflow-y-auto pr-1"></div>
+        </div>
+
+        <div class="pt-2 flex items-center gap-2">
+          <button type="button" onclick="closeModal('expense-modal')" data-i18n="cancelBtn" class="w-1/3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm">રદ કરો</button>
+          <button type="submit" class="w-2/3 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-sm shadow-md">
+            <i class="fa-solid fa-check mr-1"></i> <span data-i18n="saveExpenseBtn">ખર્ચ સેવ કરો</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =================MODAL 2: Members & Headcount================ -->
+  <div id="members-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 data-i18n="membersModalTitle" class="text-base font-extrabold text-slate-900">સભ્યો અને વ્યક્તિઓની સંખ્યા</h3>
+          <p data-i18n="membersModalSubtitle" class="text-[11px] text-slate-500">બાળકો માટે 0.5 (અડધો હિસ્સો) વાપરી શકો છો</p>
+        </div>
+        <button onclick="closeModal('members-modal')" class="w-8 h-8 rounded-full bg-slate-200/70 hover:bg-slate-300 flex items-center justify-center text-slate-600">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-5 overflow-y-auto space-y-4">
+        <div class="bg-brand-50/70 p-3 rounded-2xl border border-brand-200/70">
+          <label data-i18n="addMemberHeading" class="block text-xs font-bold text-brand-900 mb-2">+ નવો સભ્ય / પરિવાર ઉમેરો</label>
+          <div class="flex gap-2">
+            <input type="text" id="new-member-name" data-i18n-placeholder="memberNamePlaceholder" placeholder="સભ્યનું નામ" class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-sm outline-none focus:border-brand-600 bg-white">
+            <input type="number" step="0.5" min="0.5" id="new-member-count" value="2" data-i18n-placeholder="personWord" placeholder="સંખ્યા" class="w-20 px-3 py-2 rounded-xl border border-slate-300 text-sm text-center outline-none focus:border-brand-600 bg-white font-bold">
+            <button type="button" onclick="addMemberToCurrentGroup()" data-i18n="addBtn" class="px-3.5 py-2 rounded-xl bg-brand-700 text-white font-bold text-xs hover:bg-brand-800">ઉમેરો</button>
+          </div>
+        </div>
+
+        <div id="manage-members-list" class="space-y-2"></div>
+
+        <button onclick="closeModal('members-modal')" data-i18n="doneBtn" class="w-full py-3 rounded-xl bg-slate-900 text-white font-bold text-sm">પૂર્ણ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================MODAL 3: Create New Group================ -->
+  <div id="new-group-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <h3 data-i18n="newGroupModalTitle" class="text-base font-extrabold text-slate-900">નવું ગ્રુપ અથવા ટ્રીપ બનાવો</h3>
+        <button onclick="closeModal('new-group-modal')" class="w-8 h-8 rounded-full bg-slate-200/70 hover:bg-slate-300 flex items-center justify-center text-slate-600">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="createNewGroup(event)" class="p-5 overflow-y-auto space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label data-i18n="groupNameLabel" class="block text-xs font-bold text-slate-700 mb-1">ગ્રુપ / ટ્રીપનું નામ *</label>
+            <input type="text" id="ng-name" required="" data-i18n-placeholder="groupNamePlaceholder" placeholder="દા.ત. ગોવા ટ્રીપ ૨૦૨૬" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:border-brand-600">
+          </div>
+          <div>
+            <label data-i18n="groupPlaceLabel" class="block text-xs font-bold text-slate-700 mb-1">સ્થળ / નોંધ</label>
+            <input type="text" id="ng-place" data-i18n-placeholder="groupPlacePlaceholder" placeholder="દા.ત. ગોવા" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:border-brand-600">
+          </div>
+        </div>
+
+        <div>
+          <label data-i18n="groupMembersLabel" class="block text-xs font-bold text-slate-700 mb-1">સભ્યોના નામ (કોમાથી અલગ કરો) *</label>
+          <textarea id="ng-members" rows="2" required="" data-i18n-placeholder="groupMembersPlaceholder" placeholder="દા.ત. રાજેશ, મહેશ, સુરેશ" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:border-brand-600"></textarea>
+          <p data-i18n="groupMembersHint" class="text-[11px] text-slate-500 mt-1">દરેક સભ્યની શરૂઆતની વ્યક્તિ સંખ્યા ૨ રહેશે (પછી બદલી શકાય છે).</p>
+        </div>
+
+        <div class="flex gap-2 pt-2">
+          <button type="button" onclick="closeModal('new-group-modal')" data-i18n="cancelBtn" class="w-1/3 py-3 rounded-xl bg-slate-100 text-slate-700 font-bold text-sm">રદ કરો</button>
+          <button type="submit" data-i18n="createGroupSubmitBtn" class="w-2/3 py-3 rounded-xl bg-brand-700 text-white font-bold text-sm shadow-md">ગ્રુપ બનાવો</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =================MODAL 4: Settings & Play Store Guide================ -->
+  <div id="settings-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl p-5 space-y-3 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <h3 data-i18n="settingsModalTitle" class="text-base font-extrabold text-slate-900">વિકલ્પો અને પ્લે સ્ટોર પ્રકાશન</h3>
+        <button onclick="closeModal('settings-modal')" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-slate-800">
+          <i class="fa-solid fa-language text-brand-700 text-base"></i>
+          <span data-i18n="chooseLanguageTitle">એપની ભાષા પસંદ કરો</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" onclick="setLanguage('gu')" class="lang-card-gu py-2 rounded-xl text-xs font-extrabold border bg-brand-700 text-white border-brand-700 shadow-xs transition">ગુજરાતી</button>
+          <button type="button" onclick="setLanguage('hi')" class="lang-card-hi py-2 rounded-xl text-xs font-extrabold border bg-white text-slate-700 border-slate-300 hover:bg-slate-100 transition">हिन्दी</button>
+          <button type="button" onclick="setLanguage('en')" class="lang-card-en py-2 rounded-xl text-xs font-extrabold border bg-white text-slate-700 border-slate-300 hover:bg-slate-100 transition">English</button>
+        </div>
+      </div>
+
+      <!-- Play Store / APK Publishing Card -->
+      <div class="p-4 rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 space-y-3">
+        <div class="flex items-center gap-2 text-indigo-900 font-extrabold text-sm">
+          <i class="fa-brands fa-google-play text-indigo-600 text-lg"></i>
+          <span>Google Play Store પર અપલોડ કરવાની રીત</span>
+        </div>
+        <p class="text-xs text-indigo-800 leading-relaxed">
+          <b>PANDAV PANCHAYAT</b> સંપૂર્ણપણે તૈયાર છે. તેને Google Play Store પર પબ્લિશ કરવા નીચેના સ્ટેપ્સ ફોલો કરો:
+        </p>
+        <ol class="text-xs text-indigo-900 space-y-1.5 list-decimal list-inside font-medium">
+          <li>નીચેના બટનથી એપની <b>index.html</b> અને <b>manifest.json</b> ફાઇલો ડાઉનલોડ કરો.</li>
+          <li>તેને <b>Vercel</b>, <b>Netlify</b> અથવા <b>Firebase Hosting</b> પર ફ્રીમાં હોસ્ટ કરીને એક URL (લિંક) મેળવો.</li>
+          <li><b>PWABuilder.com</b> પર જઈને તમારી લિંક પેસ્ટ કરો અને Android <b>.aab (Play Store Package)</b> ડાઉનલોડ કરો.</li>
+          <li><b>Google Play Console</b> ($25 વન-ટાઇમ ફી) માં લોગિન કરી નવી એપ બનાવો, `.aab` ફાઇલ અપલોડ કરો અને <b>Publish</b> કરો!</li>
+        </ol>
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <button type="button" onclick="downloadSourceHTML()" class="py-2 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition">
+            <i class="fa-solid fa-file-code"></i>
+            <span>index.html ડાઉનલોડ</span>
+          </button>
+          <button type="button" onclick="downloadManifestJSON()" class="py-2 px-3 rounded-xl bg-white hover:bg-indigo-100 text-indigo-800 border border-indigo-300 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>manifest.json ડાઉનલોડ</span>
+          </button>
+        </div>
+      </div>
+
+      <button onclick="exportToCSV(); closeModal('settings-modal');" class="w-full p-3.5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-sm flex items-center gap-3 text-left transition">
+        <i class="fa-solid fa-file-csv text-emerald-600 text-lg"></i>
+        <div>
+          <div data-i18n="optDownloadCsvTitle">એક્સેલ / CSV ફાઇલ ડાઉનલોડ કરો</div>
+          <div data-i18n="optDownloadCsvDesc" class="text-[11px] font-normal text-emerald-700">વર્તમાન ગ્રુપનો સ્ટેટમેન્ટ એક્સપોર્ટ કરો</div>
+        </div>
+      </button>
+
+      <button onclick="closeModal('settings-modal'); openDeleteGroupModal();" class="w-full p-3.5 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-900 font-bold text-sm flex items-center gap-3 text-left transition">
+        <i class="fa-solid fa-trash-can text-rose-600 text-lg"></i>
+        <div>
+          <div data-i18n="optDeleteGroupTitle">વર્તમાન ગ્રુપ ડિલીટ કરો</div>
+          <div data-i18n="optDeleteGroupDesc" class="text-[11px] font-normal text-rose-700">આ ગ્રુપ કાયમ માટે હટાવી દેશે</div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- =================MODAL 5: Delete Group Confirm================ -->
+  <div id="delete-group-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl shadow-2xl p-6 space-y-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+          <h3 data-i18n="delGroupModalTitle" class="text-base font-extrabold text-slate-900">આ ગ્રુપ ડિલીટ કરવું છે?</h3>
+          <p data-i18n="delGroupModalSubtitle" class="text-xs text-slate-500">આ ગ્રુપના તમામ ખર્ચ કાયમ માટે દૂર થઈ જશે</p>
+        </div>
+      </div>
+
+      <div id="delete-group-confirm-body" class="bg-rose-50/80 border border-rose-200 rounded-2xl p-3.5 text-xs text-rose-900 leading-relaxed">
+        Are you sure you want to delete <b id="delete-group-target-name" class="text-sm underline"></b>?
+      </div>
+
+      <div class="flex items-center gap-2.5 pt-1">
+        <button type="button" onclick="closeModal('delete-group-modal')" data-i18n="cancelBtn" class="w-1/2 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition">રદ કરો</button>
+        <button type="button" onclick="confirmDeleteCurrentGroup()" class="w-1/2 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-trash-can"></i>
+          <span data-i18n="confirmDeleteBtn">હા, ડિલીટ કરો</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION JAVASCRIPT & MULTI-LANGUAGE DICTIONARIES -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    const TRANSLATIONS = {
+      en: {
+        appTitle: 'PANDAV PANCHAYAT',
+        appSubtitle: 'Group Expense & Trip Splitter',
+        syncActive: 'Saved to Cloud',
+        syncConnecting: 'Connecting to Cloud...',
+        syncOffline: 'Offline Mode',
+        newGroupBtn: 'New Group',
+        newGroupTitle: 'Create New Group',
+        optionsTitle: 'Options',
+        groupBannerDesc: 'Equal per-person split & family-wise balance calculation',
+        membersBtn: 'Members / Count',
+        shareBtn: 'Share',
+        deleteGroupBtn: 'Delete Group',
+        deleteGroupTitle: 'Delete this group',
+        overallExpenseLabel: 'Total Expense',
+        totalPersonsLabel: 'Total Persons',
+        perPersonLabel: 'Per Person Expense',
+        tabBalance: 'Net Balance',
+        tabExpenses: 'Expenses',
+        tabExcel: 'Excel Table',
+        smartSettlementTitle: 'Smart Settlement (Who Pays Whom?)',
+        copyBtn: 'Copy',
+        noExpenseHint: 'No expenses added yet. Tap <b>"+ Add Expense"</b> below to get started.',
+        allSettledMsg: 'Everyone is completely settled up!',
+        willPayTo: 'pays',
+        familyBalanceHeading: 'Family-wise Net Balance',
+        paidMinusShareFormula: 'Paid - Family Share',
+        statusSettled: 'Settled',
+        statusToReceive: 'To Receive',
+        statusToPay: 'To Pay',
+        personUnit: 'Persons',
+        paidAmountLabel: 'Amount Paid',
+        familyShareLabel: 'Family Share',
+        allExpensesHeading: 'All Expense Entries',
+        addNewExpenseLink: '+ Add Expense',
+        noExpensesTitle: 'No Expenses Recorded',
+        noExpensesDesc: 'Tap the button below to add your first expense.',
+        noAmountRecorded: 'No amount recorded',
+        editTooltip: 'Edit',
+        deleteTooltip: 'Delete',
+        excelViewBanner: 'Excel Sheet View (Scroll horizontally)',
+        csvDownloadBtn: 'Download CSV',
+        colParticulars: 'Particulars',
+        colTotalAmount: 'Total Amount',
+        rowTotalPaid: 'Total Paid Amount',
+        rowPersons: 'Persons',
+        rowTotalPrefix: 'Total:',
+        rowFamilyTotalExpense: 'Family Total Share',
+        rowPerPersonPrefix: 'Per Person:',
+        rowNetBalance: 'Net Balance',
+        rowBalanceLegend: '(+Receive / -Pay)',
+        noGroupsTitle: 'No Groups Available',
+        noGroupsDesc: 'Get started by creating your first group or trip for expense splitting.',
+        createNewGroupEmptyBtn: '+ Create New Group',
+        fabAddExpense: 'Add Expense',
+        modalAddExpenseTitle: 'Add New Expense',
+        modalEditExpenseTitle: 'Edit Expense',
+        expTitleLabel: 'Expense Description *',
+        expTitlePlaceholder: 'e.g. Tea, Petrol, Hotel...',
+        expDateLabel: 'Date (Optional)',
+        whoPaidLabel: 'Who paid how much? (₹)',
+        liveTotalPrefix: 'Total:',
+        cancelBtn: 'Cancel',
+        saveExpenseBtn: 'Save Expense',
+        membersModalTitle: 'Members & Person Count',
+        membersModalSubtitle: 'Use 0.5 for children (half share) if needed',
+        addMemberHeading: '+ Add New Member / Family',
+        memberNamePlaceholder: 'Member Name',
+        personWord: 'Count',
+        addBtn: 'Add',
+        doneBtn: 'Done',
+        removeMemberTooltip: 'Remove Member',
+        newGroupModalTitle: 'Create New Group / Trip',
+        groupNameLabel: 'Group / Trip Name *',
+        groupNamePlaceholder: 'e.g. Goa Trip 2026',
+        groupPlaceLabel: 'Location / Note',
+        groupPlacePlaceholder: 'e.g. Goa',
+        groupMembersLabel: 'Member Names (comma separated) *',
+        groupMembersPlaceholder: 'e.g. Rajesh, Mahesh, Suresh',
+        groupMembersHint: 'Each member starts with a person count of 2 (editable later).',
+        createGroupSubmitBtn: 'Create Group',
+        settingsModalTitle: 'Options & Play Store Publishing',
+        chooseLanguageTitle: 'Select App Language',
+        optDownloadCsvTitle: 'Download Excel / CSV File',
+        optDownloadCsvDesc: 'Export current group statement',
+        optDeleteGroupTitle: 'Delete Current Group',
+        optDeleteGroupDesc: 'Permanently removes this group',
+        delGroupModalTitle: 'Delete This Group?',
+        delGroupModalSubtitle: 'All expense records in this group will be removed',
+        confirmDeleteBtn: 'Yes, Delete',
+        toastEnterAmount: 'Please enter an amount for at least one member!',
+        toastExpUpdated: 'Expense updated!',
+        toastExpAdded: 'New expense added!',
+        toastExpDeleted: 'Expense deleted.',
+        toastEnterMemberName: 'Please enter member name',
+        toastEnterGroupDetails: 'Please enter group name and members',
+        toastNoGroupSelected: 'No group selected to delete.',
+        toastCopied: 'Summary copied! Paste it in WhatsApp.',
+        toastCopyError: 'Could not copy text.',
+        toastCsvDownloaded: 'Excel (CSV) file downloaded!',
+        waHeaderSuffix: 'Expense Summary',
+        waFamilyBalanceTitle: 'Family-wise Net Balance:',
+        waPaidShort: 'Paid:',
+        waWhoPaysWhom: 'Who Pays Whom?'
+      },
+      gu: {
+        appTitle: 'PANDAV PANCHAYAT',
+        appSubtitle: 'Group Expense & Trip Splitter',
+        syncActive: 'ડેટા ક્લાઉડમાં સેવ થયો છે',
+        syncConnecting: 'ક્લાઉડ સાથે જોડાઈ રહ્યું છે...',
+        syncOffline: 'ઓફલાઇન મોડ',
+        newGroupBtn: 'નવું ગ્રુપ',
+        newGroupTitle: 'નવું ગ્રુપ બનાવો',
+        optionsTitle: 'વિકલ્પો',
+        groupBannerDesc: 'વ્યક્તિદીઠ સરખો ખર્ચ અને પરિવાર મુજબ હિસાબ',
+        membersBtn: 'સભ્યો / સંખ્યા',
+        shareBtn: 'શેર કરો',
+        deleteGroupBtn: 'ગ્રુપ ડિલીટ કરો',
+        deleteGroupTitle: 'આ ગ્રુપ ડિલીટ કરો',
+        overallExpenseLabel: 'કુલ ખર્ચ',
+        totalPersonsLabel: 'કુલ વ્યક્તિ',
+        perPersonLabel: 'વ્યક્તિદીઠ ખર્ચ',
+        tabBalance: 'ચોખ્ખો હિસાબ',
+        tabExpenses: 'ખર્ચ યાદી',
+        tabExcel: 'એક્સેલ ટેબલ',
+        smartSettlementTitle: 'કોણે કોને રકમ ચૂકવવાની બાકી છે?',
+        copyBtn: 'કોપી કરો',
+        noExpenseHint: 'હજી સુધી કોઈ ખર્ચ ઉમેર્યો નથી. શરૂ કરવા માટે નીચે <b>"+ ખર્ચ ઉમેરો"</b> પર ક્લિક કરો.',
+        allSettledMsg: 'બધાનો હિસાબ સંપૂર્ણપણે ચોખ્ખો છે!',
+        willPayTo: 'ને આપશે',
+        familyBalanceHeading: 'પરિવાર મુજબ નેટ બેલેન્સ',
+        paidMinusShareFormula: 'ચૂકવેલ - હિસ્સો',
+        statusSettled: 'ચોખ્ખો હિસાબ',
+        statusToReceive: 'લેવાના બાકી',
+        statusToPay: 'આપવાના બાકી',
+        personUnit: 'વ્યક્તિ',
+        paidAmountLabel: 'ચૂકવેલ રકમ',
+        familyShareLabel: 'પરિવારનો હિસ્સો',
+        allExpensesHeading: 'તમામ ખર્ચની એન્ટ્રીઓ',
+        addNewExpenseLink: '+ ખર્ચ ઉમેરો',
+        noExpensesTitle: 'કોઈ ખર્ચ નોંધાયેલ નથી',
+        noExpensesDesc: 'તમારો પહેલો ખર્ચ ઉમેરવા માટે નીચેનું બટન દબાવો.',
+        noAmountRecorded: 'કોઈ રકમ નોંધાઈ નથી',
+        editTooltip: 'એડિટ કરો',
+        deleteTooltip: 'ડિલીટ કરો',
+        excelViewBanner: 'એક્સેલ શીટ વ્યૂ (આડું સ્ક્રોલ કરો)',
+        csvDownloadBtn: 'CSV ડાઉનલોડ',
+        colParticulars: 'વિગત',
+        colTotalAmount: 'કુલ રકમ',
+        rowTotalPaid: 'કુલ ચૂકવેલ રકમ',
+        rowPersons: 'વ્યક્તિઓ',
+        rowTotalPrefix: 'કુલ:',
+        rowFamilyTotalExpense: 'પરિવાર કુલ હિસ્સો',
+        rowPerPersonPrefix: 'પ્રતિ વ્યક્તિ:',
+        rowNetBalance: 'નેટ બેલેન્સ',
+        rowBalanceLegend: '(+લેવાના / -આપવાના)',
+        noGroupsTitle: 'કોઈ ગ્રુપ ઉપલબ્ધ નથી',
+        noGroupsDesc: 'ખર્ચ વહેંચવા માટે તમારું પહેલું ગ્રુપ અથવા ટ્રીપ બનાવીને શરૂઆત કરો.',
+        createNewGroupEmptyBtn: '+ નવું ગ્રુપ બનાવો',
+        fabAddExpense: 'ખર્ચ ઉમેરો',
+        modalAddExpenseTitle: 'નવો ખર્ચ ઉમેરો',
+        modalEditExpenseTitle: 'ખર્ચ એડિટ કરો',
+        expTitleLabel: 'ખર્ચની વિગત *',
+        expTitlePlaceholder: 'દા.ત. ચા, પેટ્રોલ, હોટેલ...',
+        expDateLabel: 'તારીખ (વૈકલ્પિક)',
+        whoPaidLabel: 'કોણે કેટલા ચૂકવ્યા? (₹)',
+        liveTotalPrefix: 'કુલ:',
+        cancelBtn: 'રદ કરો',
+        saveExpenseBtn: 'ખર્ચ સેવ કરો',
+        membersModalTitle: 'સભ્યો અને વ્યક્તિઓની સંખ્યા',
+        membersModalSubtitle: 'બાળકો માટે 0.5 (અડધો હિસ્સો) વાપરી શકો છો',
+        addMemberHeading: '+ નવો સભ્ય / પરિવાર ઉમેરો',
+        memberNamePlaceholder: 'સભ્યનું નામ',
+        personWord: 'સંખ્યા',
+        addBtn: 'ઉમેરો',
+        doneBtn: 'પૂર્ણ',
+        removeMemberTooltip: 'સભ્ય દૂર કરો',
+        newGroupModalTitle: 'નવું ગ્રુપ અથવા ટ્રીપ બનાવો',
+        groupNameLabel: 'ગ્રુપ / ટ્રીપનું નામ *',
+        groupNamePlaceholder: 'દા.ત. ગોવા ટ્રીપ ૨૦૨૬',
+        groupPlaceLabel: 'સ્થળ / નોંધ',
+        groupPlacePlaceholder: 'દા.ત. ગોવા',
+        groupMembersLabel: 'સભ્યોના નામ (કોમાથી અલગ કરો) *',
+        groupMembersPlaceholder: 'દા.ત. રાજેશ, મહેશ, સુરેશ',
+        groupMembersHint: 'દરેક સભ્યની શરૂઆતની વ્યક્તિ સંખ્યા ૨ રહેશે (પછી બદલી શકાય છે).',
+        createGroupSubmitBtn: 'ગ્રુપ બનાવો',
+        settingsModalTitle: 'વિકલ્પો અને પ્લે સ્ટોર પ્રકાશન',
+        chooseLanguageTitle: 'એપની ભાષા પસંદ કરો',
+        optDownloadCsvTitle: 'એક્સેલ / CSV ફાઇલ ડાઉનલોડ કરો',
+        optDownloadCsvDesc: 'વર્તમાન ગ્રુપનો સ્ટેટમેન્ટ એક્સપોર્ટ કરો',
+        optDeleteGroupTitle: 'વર્તમાન ગ્રુપ ડિલીટ કરો',
+        optDeleteGroupDesc: 'આ ગ્રુપ કાયમ માટે હટાવી દેશે',
+        delGroupModalTitle: 'આ ગ્રુપ ડિલીટ કરવું છે?',
+        delGroupModalSubtitle: 'આ ગ્રુપના તમામ ખર્ચ કાયમ માટે દૂર થઈ જશે',
+        confirmDeleteBtn: 'હા, ડિલીટ કરો',
+        toastEnterAmount: 'કૃપા કરીને ઓછામાં ઓછા એક સભ્ય માટે રકમ દાખલ કરો!',
+        toastExpUpdated: 'ખર્ચ અપડેટ થઈ ગયો!',
+        toastExpAdded: 'નવો ખર્ચ ઉમેરાયો!',
+        toastExpDeleted: 'ખર્ચ ડિલીટ થયો.',
+        toastEnterMemberName: 'કૃપા કરીને સભ્યનું નામ દાખલ કરો',
+        toastEnterGroupDetails: 'કૃપા કરીને ગ્રુપનું નામ અને સભ્યો દાખલ કરો',
+        toastNoGroupSelected: 'ડિલીટ કરવા માટે કોઈ ગ્રુપ પસંદ નથી.',
+        toastCopied: 'સારાંશ કોપી થઈ ગયો! વોટ્સએપમાં પેસ્ટ કરો.',
+        toastCopyError: 'ટેક્સ્ટ કોપી થઈ શકી નથી.',
+        toastCsvDownloaded: 'એક્સેલ (CSV) ફાઇલ ડાઉનલોડ થઈ ગઈ!',
+        waHeaderSuffix: 'ખર્ચનો હિસાબ',
+        waFamilyBalanceTitle: 'પરિવાર મુજબ નેટ બેલેન્સ:',
+        waPaidShort: 'ચૂકવ્યા:',
+        waWhoPaysWhom: 'કોણે કોને રકમ આપવાની?'
+      },
+      hi: {
+        appTitle: 'PANDAV PANCHAYAT',
+        appSubtitle: 'Group Expense & Trip Splitter',
+        syncActive: 'डेटा क्लाउड में सहेजा गया है',
+        syncConnecting: 'क्लाउड से जुड़ रहा है...',
+        syncOffline: 'ऑफ़लाइन मोड',
+        newGroupBtn: 'नया ग्रुप',
+        newGroupTitle: 'नया ग्रुप बनाएं',
+        optionsTitle: 'विकल्प',
+        groupBannerDesc: 'प्रति व्यक्ति बराबर खर्च और परिवार-वार हिसाब',
+        membersBtn: 'सदस्य / संख्या',
+        shareBtn: 'शेयर करें',
+        deleteGroupBtn: 'ग्रुप हटाएं',
+        deleteGroupTitle: 'इस ग्रुप को हटाएं',
+        overallExpenseLabel: 'कुल खर्च',
+        totalPersonsLabel: 'कुल व्यक्ति',
+        perPersonLabel: 'प्रति व्यक्ति खर्च',
+        tabBalance: 'शुद्ध हिसाब',
+        tabExpenses: 'खर्च सूची',
+        tabExcel: 'एक्सल टेबल',
+        smartSettlementTitle: 'किसने किसको रकम चुकानी है?',
+        copyBtn: 'कॉपी करें',
+        noExpenseHint: 'अभी तक कोई खर्च नहीं जोड़ा गया है। शुरू करने के लिए नीचे <b>"+ खर्च जोड़ें"</b> पर क्लिक करें।',
+        allSettledMsg: 'सभी का हिसाब पूरी तरह चुकता है!',
+        willPayTo: 'को देगा',
+        familyBalanceHeading: 'परिवार-वार नेट बैलेंस',
+        paidMinusShareFormula: 'भुगतान - हिस्सा',
+        statusSettled: 'चुकता',
+        statusToReceive: 'लेना बाकी',
+        statusToPay: 'देना बाकी',
+        personUnit: 'व्यक्ति',
+        paidAmountLabel: 'भुगतान राशि',
+        familyShareLabel: 'परिवार का हिस्सा',
+        allExpensesHeading: 'सभी खर्च प्रविष्टियां',
+        addNewExpenseLink: '+ खर्च जोड़ें',
+        noExpensesTitle: 'कोई खर्च दर्ज नहीं किया गया',
+        noExpensesDesc: 'अपना पहला खर्च जोड़ने के लिए नीचे दिए गए बटन को दबाएं।',
+        noAmountRecorded: 'कोई राशि दर्ज नहीं',
+        editTooltip: 'संपादित करें',
+        deleteTooltip: 'हटाएं',
+        excelViewBanner: 'एक्सल शीट व्यू (क्षैतिज स्क्रॉल करें)',
+        csvDownloadBtn: 'CSV डाउनलोड',
+        colParticulars: 'विवरण',
+        colTotalAmount: 'कुल राशि',
+        rowTotalPaid: 'कुल भुगतान राशि',
+        rowPersons: 'व्यक्ति',
+        rowTotalPrefix: 'कुल:',
+        rowFamilyTotalExpense: 'परिवार कुल हिस्सा',
+        rowPerPersonPrefix: 'प्रति व्यक्ति:',
+        rowNetBalance: 'नेट बैलेंस',
+        rowBalanceLegend: '(+लेना / -देना)',
+        noGroupsTitle: 'कोई ग्रुप उपलब्ध नहीं',
+        noGroupsDesc: 'खर्च साझा करने के लिए अपना पहला ग्रुप या ट्रिप बनाकर शुरुआत करें।',
+        createNewGroupEmptyBtn: '+ नया ग्रुप बनाएं',
+        fabAddExpense: 'खर्च जोड़ें',
+        modalAddExpenseTitle: 'नया खर्च जोड़ें',
+        modalEditExpenseTitle: 'खर्च संपादित करें',
+        expTitleLabel: 'खर्च का विवरण *',
+        expTitlePlaceholder: 'उदा. चाय, पेट्रोल, होटल...',
+        expDateLabel: 'दिनांक (वैकल्पिक)',
+        whoPaidLabel: 'किसने कितना भुगतान किया? (₹)',
+        liveTotalPrefix: 'कुल:',
+        cancelBtn: 'रद्द करें',
+        saveExpenseBtn: 'खर्च सहेजें',
+        membersModalTitle: 'सदस्य और व्यक्तियों की संख्या',
+        membersModalSubtitle: 'बच्चों के लिए 0.5 (आधा हिस्सा) उपयोग कर सकते हैं',
+        addMemberHeading: '+ नया सदस्य / परिवार जोड़ें',
+        memberNamePlaceholder: 'सदस्य का नाम',
+        personWord: 'संख्या',
+        addBtn: 'जोड़ें',
+        doneBtn: 'पूर्ण',
+        removeMemberTooltip: 'सदस्य हटाएं',
+        newGroupModalTitle: 'नया ग्रुप या ट्रिप बनाएं',
+        groupNameLabel: 'ग्रुप / ट्रिप का नाम *',
+        groupNamePlaceholder: 'उदा. गोवा ट्रिप 2026',
+        groupPlaceLabel: 'स्थान / नोट',
+        groupPlacePlaceholder: 'उदा. गोवा',
+        groupMembersLabel: 'सदस्यों के नाम (कोमा से अलग करें) *',
+        groupMembersPlaceholder: 'उदा. राजेश, महेश, सुरेश',
+        groupMembersHint: 'प्रत्येक सदस्य की शुरुआती व्यक्ति संख्या 2 होगी (बाद में बदली जा सकती है)।',
+        createGroupSubmitBtn: 'ग्रुप बनाएं',
+        settingsModalTitle: 'विकल्प और प्ले स्टोर प्रकाशन',
+        chooseLanguageTitle: 'ऐप की भाषा चुनें',
+        optDownloadCsvTitle: 'एक्सल / CSV फ़ाइल डाउनलोड करें',
+        optDownloadCsvDesc: 'वर्तमान ग्रुप का स्टेटमेंट एक्सपोर्ट करें',
+        optDeleteGroupTitle: 'वर्तमान ग्रुप हटाएं',
+        optDeleteGroupDesc: 'इस ग्रुप को हमेशा के लिए हटा देगा',
+        delGroupModalTitle: 'इस ग्रुप को हटाएं?',
+        delGroupModalSubtitle: 'इस ग्रुप के सभी खर्च हमेशा के लिए हट जाएंगे',
+        confirmDeleteBtn: 'हाँ, हटाएं',
+        toastEnterAmount: 'कृपया कम से कम एक सदस्य के लिए राशि दर्ज करें!',
+        toastExpUpdated: 'खर्च अपडेट कर दिया गया!',
+        toastExpAdded: 'नया खर्च जोड़ा गया!',
+        toastExpDeleted: 'खर्च हटा दिया गया।',
+        toastEnterMemberName: 'कृपया सदस्य का नाम दर्ज करें',
+        toastEnterGroupDetails: 'कृपया ग्रुप का नाम और सदस्य दर्ज करें',
+        toastNoGroupSelected: 'हटाने के लिए कोई ग्रुप चयनित नहीं है।',
+        toastCopied: 'सारांश कॉपी हो गया! व्हाट्सएप में पेस्ट करें।',
+        toastCopyError: 'टेक्स्ट कॉपी नहीं हो सका।',
+        toastCsvDownloaded: 'एक्सल (CSV) फ़ाइल डाउनलोड हो गई!',
+        waHeaderSuffix: 'खर्च का हिसाब',
+        waFamilyBalanceTitle: 'परिवार-वार नेट बैलेंस:',
+        waPaidShort: 'भुगतान:',
+        waWhoPaysWhom: 'किसने किसको रकम देनी है?'
+      }
+    };
+
+    let currentLang = 'gu';
+    try {
+      const savedLang = localStorage.getItem('pandav_panchayat_lang');
+      if (savedLang && TRANSLATIONS[savedLang]) {
+        currentLang = savedLang;
+      }
+    } catch (e) {}
+
+    function t(key) {
+      return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || TRANSLATIONS.en[key] || key;
+    }
+
+    function applyTranslations() {
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (TRANSLATIONS[currentLang][key]) {
+          el.innerHTML = TRANSLATIONS[currentLang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (TRANSLATIONS[currentLang][key]) {
+          el.setAttribute('placeholder', TRANSLATIONS[currentLang][key]);
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        if (TRANSLATIONS[currentLang][key]) {
+          el.setAttribute('title', TRANSLATIONS[currentLang][key]);
+        }
+      });
+
+      ['gu', 'hi', 'en'].forEach(langCode => {
+        const isSelected = currentLang === langCode;
+        document.querySelectorAll(`.lang-btn-${langCode}`).forEach(btn => {
+          if (isSelected) {
+            btn.classList.add('bg-white', 'text-brand-900', 'shadow-xs');
+            btn.classList.remove('text-white', 'hover:bg-white/10');
+          } else {
+            btn.classList.remove('bg-white', 'text-brand-900', 'shadow-xs');
+            btn.classList.add('text-white', 'hover:bg-white/10');
+          }
+        });
+
+        document.querySelectorAll(`.lang-card-${langCode}`).forEach(card => {
+          if (isSelected) {
+            card.className = `lang-card-${langCode} py-2 rounded-xl text-xs font-extrabold border bg-brand-700 text-white border-brand-700 shadow-xs transition`;
+          } else {
+            card.className = `lang-card-${langCode} py-2 rounded-xl text-xs font-extrabold border bg-white text-slate-700 border-slate-300 hover:bg-slate-100 transition`;
+          }
+        });
+      });
+    }
+
+    window.setLanguage = function(langCode) {
+      if (!TRANSLATIONS[langCode]) return;
+      currentLang = langCode;
+      try {
+        localStorage.setItem('pandav_panchayat_lang', langCode);
+      } catch (e) {}
+      applyTranslations();
+      renderApp();
+    };
+
+    let appState = {
+      groups: [],
+      activeGroupId: null,
+      activeSubTab: 'balance'
+    };
+
+    let db = null;
+    let auth = null;
+    let currentUser = null;
+    let stateDocRef = null;
+    let isRemoteLoaded = false;
+
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'pandav-panchayat-app';
+
+    function updateSyncStatusBadge(statusType) {
+      const badge = document.getElementById('sync-status-badge');
+      if (!badge) return;
+      if (statusType === 'connected') {
+        badge.innerHTML = `<i class="fa-solid fa-cloud-check text-emerald-300"></i> ${t('syncActive')}`;
+      } else if (statusType === 'connecting') {
+        badge.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-300"></i> ${t('syncConnecting')}`;
+      } else {
+        badge.innerHTML = `<i class="fa-solid fa-cloud-slash text-rose-300"></i> ${t('syncOffline')}`;
+      }
+    }
+
+    async function initCloudStorage() {
+      updateSyncStatusBadge('connecting');
+      try {
+        if (typeof __firebase_config === 'undefined' || !__firebase_config) {
+          updateSyncStatusBadge('offline');
+          return;
+        }
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getFirestore(app);
+
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+
+        currentUser = auth.currentUser;
+        if (!currentUser) {
+          updateSyncStatusBadge('offline');
+          return;
+        }
+
+        const userId = currentUser.uid;
+        stateDocRef = doc(db, 'artifacts', appId, 'users', userId, 'appData', 'mainState');
+
+        onSnapshot(stateDocRef, (snapshot) => {
+          if (snapshot.exists()) {
+            const data = snapshot.data();
+            if (data && Array.isArray(data.groups)) {
+              appState.groups = data.groups;
+              appState.activeGroupId = data.activeGroupId || (data.groups.length > 0 ? data.groups[0].id : null);
+              renderApp();
+            }
+          } else if (!isRemoteLoaded && appState.groups.length > 0) {
+            saveState();
+          }
+          isRemoteLoaded = true;
+          updateSyncStatusBadge('connected');
+        }, (error) => {
+          console.error('Cloud snapshot error:', error);
+          updateSyncStatusBadge('offline');
+        });
+      } catch (err) {
+        console.error('Cloud initialization error:', err);
+        updateSyncStatusBadge('offline');
+      }
+    }
+
+    async function saveState() {
+      if (!currentUser || !stateDocRef) return;
+      try {
+        await setDoc(stateDocRef, {
+          groups: appState.groups,
+          activeGroupId: appState.activeGroupId,
+          updatedAt: Date.now()
+        }, { merge: true });
+        updateSyncStatusBadge('connected');
+      } catch (e) {
+        console.error('Error saving to cloud:', e);
+      }
+    }
+
+    function formatMoney(num) {
+      if (Math.abs(num) < 0.005) return '₹0';
+      const isWhole = Math.abs(num - Math.round(num)) < 0.005;
+      const formatted = isWhole
+        ? Math.round(num).toLocaleString('en-IN')
+        : num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return '₹' + formatted;
+    }
+
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toast-msg');
+      const iconEl = document.getElementById('toast-icon');
+
+      msgEl.textContent = message;
+      iconEl.className = isError
+        ? 'fa-solid fa-circle-exclamation text-rose-400 text-base'
+        : 'fa-solid fa-circle-check text-emerald-400 text-base';
+
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.remove('scale-95', 'opacity-0');
+        toast.classList.add('scale-100', 'opacity-100');
+      }, 10);
+
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove('scale-100', 'opacity-100');
+        toast.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => toast.classList.add('hidden'), 250);
+      }, 2800);
+    }
+
+    function getActiveGroup() {
+      return appState.groups.find(g => g.id === appState.activeGroupId) || appState.groups[0];
+    }
+
+    function calculateGroupSummary(group) {
+      if (!group || !group.members) return { totalMembers: 0, overallExpense: 0, perPersonCost: 0, memberStats: [], settlements: [] };
+      const totalMembers = group.members.reduce((sum, m) => sum + (parseFloat(m.count) || 0), 0);
+
+      const paidByMember = {};
+      group.members.forEach(m => { paidByMember[m.id] = 0; });
+
+      let overallExpense = 0;
+      group.expenses.forEach(exp => {
+        let rowTotal = 0;
+        Object.entries(exp.payments || {}).forEach(([mId, amt]) => {
+          const val = parseFloat(amt) || 0;
+          if (paidByMember.hasOwnProperty(mId)) {
+            paidByMember[mId] += val;
+          }
+          rowTotal += val;
+        });
+        overallExpense += rowTotal;
+      });
+
+      const perPersonCost = totalMembers > 0 ? (overallExpense / totalMembers) : 0;
+
+      const memberStats = group.members.map(m => {
+        const count = parseFloat(m.count) || 0;
+        const paid = paidByMember[m.id] || 0;
+        const expectedShare = perPersonCost * count;
+        const netBalance = paid - expectedShare;
+        return { ...m, count, paid, expectedShare, netBalance };
+      });
+
+      const debtors = memberStats
+        .filter(m => m.netBalance < -0.01)
+        .map(m => ({ id: m.id, name: m.name, amount: Math.abs(m.netBalance) }))
+        .sort((a, b) => b.amount - a.amount);
+
+      const creditors = memberStats
+        .filter(m => m.netBalance > 0.01)
+        .map(m => ({ id: m.id, name: m.name, amount: m.netBalance }))
+        .sort((a, b) => b.amount - a.amount);
+
+      const settlements = [];
+      let i = 0, j = 0;
+      while (i < debtors.length && j < creditors.length) {
+        const payAmt = Math.min(debtors[i].amount, creditors[j].amount);
+        if (payAmt > 0.01) {
+          settlements.push({ from: debtors[i].name, to: creditors[j].name, amount: payAmt });
+        }
+        debtors[i].amount -= payAmt;
+        creditors[j].amount -= payAmt;
+        if (debtors[i].amount < 0.01) i++;
+        if (creditors[j].amount < 0.01) j++;
+      }
+
+      return { totalMembers, overallExpense, perPersonCost, memberStats, settlements };
+    }
+
+    function renderApp() {
+      const tabsContainer = document.getElementById('group-tabs');
+      const mainContent = document.getElementById('main-app-content');
+      const emptyState = document.getElementById('no-groups-empty-state');
+      const bottomBar = document.getElementById('bottom-action-bar');
+
+      if (!appState.groups || appState.groups.length === 0) {
+        tabsContainer.innerHTML = '';
+        mainContent.classList.add('hidden');
+        bottomBar.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      mainContent.classList.remove('hidden');
+      bottomBar.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+
+      const group = getActiveGroup();
+      if (!group) return;
+
+      tabsContainer.innerHTML = appState.groups.map(g => {
+        const isActive = g.id === group.id;
+        return `
+          <button onclick="selectGroup('${g.id}')" class="shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 ${
+            isActive ? 'bg-white text-brand-900 shadow-md' : 'bg-white/15 text-white hover:bg-white/25'
+          }">
+            <span>${g.name}</span>
+            ${g.place ? `<span class="text-[10px] px-1.5 py-0.5 rounded-md ${isActive ? 'bg-amber-100 text-amber-800' : 'bg-black/20 text-emerald-100'}">${g.place}</span>` : ''}
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('current-group-name').textContent = group.name;
+      const placeBadge = document.getElementById('current-group-place');
+      if (group.place) {
+        placeBadge.textContent = group.place;
+        placeBadge.classList.remove('hidden');
+      } else {
+        placeBadge.classList.add('hidden');
+      }
+
+      const summary = calculateGroupSummary(group);
+
+      document.getElementById('stat-total-expense').textContent = formatMoney(summary.overallExpense);
+      document.getElementById('stat-total-members').textContent = summary.totalMembers;
+      document.getElementById('stat-per-person').textContent = formatMoney(summary.perPersonCost);
+
+      const settlementListEl = document.getElementById('settlement-list');
+      if (summary.overallExpense === 0) {
+        settlementListEl.innerHTML = `<p class="text-slate-300 text-xs">${t('noExpenseHint')}</p>`;
+      } else if (summary.settlements.length === 0) {
+        settlementListEl.innerHTML = `<p class="text-emerald-300 text-xs font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> ${t('allSettledMsg')}</p>`;
+      } else {
+        settlementListEl.innerHTML = summary.settlements.map(s => `
+          <div class="flex items-center justify-between bg-white/10 px-3 py-2 rounded-xl border border-white/10">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-bold text-rose-300">${s.from}</span>
+              <i class="fa-solid fa-arrow-right text-[10px] text-slate-400"></i>
+              <span class="font-bold text-emerald-300">${s.to}</span>
+              <span class="text-slate-300 text-xs">${t('willPayTo')}</span>
+            </div>
+            <span class="font-extrabold text-amber-300 text-sm">${formatMoney(s.amount)}</span>
+          </div>
+        `).join('');
+      }
+
+      const balanceCardsEl = document.getElementById('member-balance-cards');
+      balanceCardsEl.innerHTML = summary.memberStats.map(m => {
+        const isPositive = m.netBalance > 0.01;
+        const isNegative = m.netBalance < -0.01;
+
+        let badgeClass = 'bg-slate-100 text-slate-600 border-slate-200';
+        let statusLabel = t('statusSettled');
+        let amountText = '₹0';
+
+        if (isPositive) {
+          badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+          statusLabel = t('statusToReceive');
+          amountText = '+' + formatMoney(m.netBalance);
+        } else if (isNegative) {
+          badgeClass = 'bg-rose-50 text-rose-700 border-rose-200';
+          statusLabel = t('statusToPay');
+          amountText = '-' + formatMoney(Math.abs(m.netBalance));
+        }
+
+        return `
+          <div class="bg-white rounded-2xl p-4 material-card border border-slate-100 flex flex-col justify-between gap-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-extrabold text-slate-900 text-base">${m.name}</h4>
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">
+                    <i class="fa-solid fa-user text-[9px] mr-0.5"></i> ${m.count} ${t('personUnit')}
+                  </span>
+                </div>
+              </div>
+              <div class="px-2.5 py-1 rounded-xl border text-right ${badgeClass}">
+                <div class="text-sm font-extrabold leading-tight">${amountText}</div>
+                <div class="text-[10px] font-bold uppercase tracking-wide">${statusLabel}</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-xs">
+              <div class="bg-slate-50 px-2.5 py-1.5 rounded-lg">
+                <span class="text-slate-500 block text-[10px]">${t('paidAmountLabel')}</span>
+                <span class="font-bold text-slate-800">${formatMoney(m.paid)}</span>
+              </div>
+              <div class="bg-slate-50 px-2.5 py-1.5 rounded-lg">
+                <span class="text-slate-500 block text-[10px]">${t('familyShareLabel')}</span>
+                <span class="font-bold text-slate-800">${formatMoney(m.expectedShare)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('expense-count-badge').textContent = group.expenses.length;
+      const expenseListEl = document.getElementById('expense-cards-list');
+      if (group.expenses.length === 0) {
+        expenseListEl.innerHTML = `
+          <div class="bg-white rounded-2xl p-8 text-center border border-dashed border-slate-300">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3 text-xl">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <p class="text-sm font-bold text-slate-700">${t('noExpensesTitle')}</p>
+            <p class="text-xs text-slate-500 mt-1">${t('noExpensesDesc')}</p>
+          </div>
+        `;
+      } else {
+        expenseListEl.innerHTML = group.expenses.map((exp, idx) => {
+          let rowTotal = 0;
+          const contributors = [];
+          group.members.forEach(m => {
+            const amt = parseFloat(exp.payments?.[m.id]) || 0;
+            if (amt > 0) {
+              rowTotal += amt;
+              contributors.push(`${m.name}: <b>${formatMoney(amt)}</b>`);
+            }
+          });
+
+          return `
+            <div class="bg-white rounded-2xl p-4 material-card border border-slate-100 flex items-center justify-between gap-3">
+              <div class="space-y-1 flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-xs font-bold text-slate-400">#${idx + 1}</span>
+                  <h4 class="font-bold text-slate-900 text-sm sm:text-base truncate">${exp.title}</h4>
+                  ${exp.date ? `<span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-medium"><i class="fa-regular fa-calendar mr-1"></i>${exp.date}</span>` : ''}
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  ${contributors.length > 0 ? contributors.join(' &nbsp;•&nbsp; ') : t('noAmountRecorded')}
+                </p>
+              </div>
+              <div class="flex flex-col items-end gap-2 shrink-0">
+                <span class="text-base font-extrabold text-brand-700">${formatMoney(rowTotal)}</span>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="openExpenseModal('${exp.id}')" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-blue-50 text-slate-600 hover:text-blue-600 flex items-center justify-center text-xs transition" title="${t('editTooltip')}">
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button onclick="deleteExpense('${exp.id}')" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 flex items-center justify-center text-xs transition" title="${t('deleteTooltip')}">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderExcelMatrix(group, summary);
+    }
+
+    function renderExcelMatrix(group, summary) {
+      const table = document.getElementById('excel-matrix-table');
+      const members = group.members;
+
+      let thead = `
+        <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+          <tr>
+            <th class="py-2.5 px-3 text-left sticky left-0 bg-slate-100 z-10 border-r border-slate-200">${t('colParticulars')}</th>
+            ${members.map(m => `<th class="py-2.5 px-3">${m.name}</th>`).join('')}
+            <th class="py-2.5 px-3 bg-emerald-50 text-emerald-900">${t('colTotalAmount')}</th>
+          </tr>
+        </thead>
+      `;
+
+      let tbodyRows = group.expenses.map(exp => {
+        let rowTotal = 0;
+        const cells = members.map(m => {
+          const val = parseFloat(exp.payments?.[m.id]) || 0;
+          rowTotal += val;
+          return `<td class="py-2 px-3 border-b border-slate-100 ${val > 0 ? 'font-semibold text-slate-800' : 'text-slate-300'}">${val > 0 ? formatMoney(val) : '-'}</td>`;
+        }).join('');
+
+        return `
+          <tr class="hover:bg-slate-50">
+            <td class="py-2 px-3 text-left font-semibold text-slate-800 sticky left-0 bg-white border-b border-r border-slate-100">${exp.title}</td>
+            ${cells}
+            <td class="py-2 px-3 font-bold text-slate-900 bg-emerald-50/40 border-b border-slate-100">${formatMoney(rowTotal)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      const totalPaidRow = `
+        <tr class="bg-amber-50/70 font-bold border-t-2 border-slate-300">
+          <td class="py-2.5 px-3 text-left sticky left-0 bg-amber-50 border-r border-slate-200 text-slate-900">${t('rowTotalPaid')}</td>
+          ${summary.memberStats.map(m => `<td class="py-2.5 px-3 text-slate-900">${formatMoney(m.paid)}</td>`).join('')}
+          <td class="py-2.5 px-3 bg-emerald-100 text-emerald-950 font-extrabold">${formatMoney(summary.overallExpense)}</td>
+        </tr>
+      `;
+
+      const headcountRow = `
+        <tr class="bg-slate-50 font-semibold border-t border-slate-200">
+          <td class="py-2 px-3 text-left sticky left-0 bg-slate-50 border-r border-slate-200 text-slate-700">${t('rowPersons')}</td>
+          ${summary.memberStats.map(m => `<td class="py-2 px-3 text-slate-800">${m.count}</td>`).join('')}
+          <td class="py-2 px-3 font-bold text-blue-800 bg-blue-50">${t('rowTotalPrefix')} ${summary.totalMembers}</td>
+        </tr>
+      `;
+
+      const familyShareRow = `
+        <tr class="bg-white font-semibold border-t border-slate-200">
+          <td class="py-2 px-3 text-left sticky left-0 bg-white border-r border-slate-200 text-slate-700">${t('rowFamilyTotalExpense')}</td>
+          ${summary.memberStats.map(m => `<td class="py-2 px-3 text-slate-700">${formatMoney(m.expectedShare)}</td>`).join('')}
+          <td class="py-2 px-3 text-[11px] bg-amber-100 text-amber-900 font-bold">${t('rowPerPersonPrefix')} ${formatMoney(summary.perPersonCost)}</td>
+        </tr>
+      `;
+
+      const netBalanceRow = `
+        <tr class="font-extrabold border-t-2 border-slate-300 bg-slate-100">
+          <td class="py-2.5 px-3 text-left sticky left-0 bg-slate-100 border-r border-slate-200 text-slate-900">${t('rowNetBalance')}</td>
+          ${summary.memberStats.map(m => {
+            const cls = m.netBalance > 0.01 ? 'text-emerald-700 bg-emerald-50' : (m.netBalance < -0.01 ? 'text-rose-700 bg-rose-50' : 'text-slate-600');
+            const prefix = m.netBalance > 0.01 ? '+' : (m.netBalance < -0.01 ? '-' : '');
+            return `<td class="py-2.5 px-3 ${cls}">${prefix}${formatMoney(Math.abs(m.netBalance))}</td>`;
+          }).join('')}
+          <td class="py-2.5 px-3 text-center text-[11px] text-slate-500">${t('rowBalanceLegend')}</td>
+        </tr>
+      `;
+
+      table.innerHTML = thead + `<tbody>${tbodyRows}${totalPaidRow}${headcountRow}${familyShareRow}${netBalanceRow}</tbody>`;
+    }
+
+    window.selectGroup = function(groupId) {
+      appState.activeGroupId = groupId;
+      saveState();
+      renderApp();
+    };
+
+    window.switchSubTab = function(tabName) {
+      appState.activeSubTab = tabName;
+      ['balance', 'expenses', 'excel'].forEach(t => {
+        const btn = document.getElementById('subtab-' + t);
+        const view = document.getElementById('view-' + t);
+        if (t === tabName) {
+          btn.className = 'py-2.5 px-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-brand-800 shadow-sm transition';
+          view.classList.remove('hidden');
+        } else {
+          btn.className = 'py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition';
+          view.classList.add('hidden');
+        }
+      });
+    };
+
+    window.openModal = function(id) {
+      document.getElementById(id).classList.remove('hidden');
+    };
+    window.closeModal = function(id) {
+      document.getElementById(id).classList.add('hidden');
+    };
+    window.openSettingsModal = function() {
+      openModal('settings-modal');
+    };
+
+    window.openExpenseModal = function(expenseId = null) {
+      const group = getActiveGroup();
+      if (!group) {
+        showToast(t('toastNoGroupSelected'), true);
+        return;
+      }
+      const form = document.getElementById('expense-form');
+      form.reset();
+      document.getElementById('edit-expense-id').value = expenseId || '';
+      document.getElementById('expense-modal-title').textContent = expenseId ? t('modalEditExpenseTitle') : t('modalAddExpenseTitle');
+
+      const existingExp = expenseId ? group.expenses.find(e => e.id === expenseId) : null;
+      if (existingExp) {
+        document.getElementById('exp-title').value = existingExp.title;
+        document.getElementById('exp-date').value = existingExp.date || '';
+      }
+
+      const container = document.getElementById('expense-member-inputs');
+      container.innerHTML = group.members.map(m => {
+        const val = existingExp && existingExp.payments?.[m.id] ? existingExp.payments[m.id] : '';
+        return `
+          <div class="flex items-center justify-between bg-slate-50 px-3 py-2 rounded-xl border border-slate-200">
+            <label for="pay_${m.id}" class="text-sm font-bold text-slate-800">${m.name} <span class="text-xs font-normal text-slate-500">(${m.count} ${t('personUnit')})</span></label>
+            <div class="relative w-32">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">₹</span>
+              <input type="number" step="any" min="0" id="pay_${m.id}" data-member-id="${m.id}" value="${val}" oninput="updateModalLiveTotal()" placeholder="0" class="member-pay-input w-full pl-7 pr-3 py-1.5 rounded-lg border border-slate-300 text-right font-bold text-sm focus:border-brand-600 outline-none bg-white" />
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateModalLiveTotal();
+      openModal('expense-modal');
+    };
+
+    window.updateModalLiveTotal = function() {
+      let sum = 0;
+      document.querySelectorAll('.member-pay-input').forEach(inp => {
+        sum += parseFloat(inp.value) || 0;
+      });
+      document.getElementById('modal-live-total').textContent = `${t('liveTotalPrefix')} ` + formatMoney(sum);
+    };
+
+    window.saveExpense = function(e) {
+      e.preventDefault();
+      const group = getActiveGroup();
+      const title = document.getElementById('exp-title').value.trim();
+      const date = document.getElementById('exp-date').value;
+      const editId = document.getElementById('edit-expense-id').value;
+
+      if (!title) return;
+
+      const payments = {};
+      let totalPaid = 0;
+      document.querySelectorAll('.member-pay-input').forEach(inp => {
+        const val = parseFloat(inp.value) || 0;
+        if (val > 0) {
+          payments[inp.dataset.memberId] = val;
+          totalPaid += val;
+        }
+      });
+
+      if (totalPaid <= 0) {
+        showToast(t('toastEnterAmount'), true);
+        return;
+      }
+
+      if (editId) {
+        const idx = group.expenses.findIndex(x => x.id === editId);
+        if (idx !== -1) {
+          group.expenses[idx] = { ...group.expenses[idx], title, date, payments };
+        }
+        showToast(t('toastExpUpdated'));
+      } else {
+        group.expenses.push({ id: 'exp_' + Date.now(), title, date, payments });
+        showToast(t('toastExpAdded'));
+      }
+
+      saveState();
+      renderApp();
+      closeModal('expense-modal');
+    };
+
+    window.deleteExpense = function(expenseId) {
+      const group = getActiveGroup();
+      group.expenses = group.expenses.filter(e => e.id !== expenseId);
+      saveState();
+      renderApp();
+      showToast(t('toastExpDeleted'));
+    };
+
+    window.openMembersModal = function() {
+      renderManageMembersList();
+      openModal('members-modal');
+    };
+
+    function renderManageMembersList() {
+      const group = getActiveGroup();
+      if (!group) return;
+      const listEl = document.getElementById('manage-members-list');
+      listEl.innerHTML = group.members.map(m => `
+        <div class="flex items-center justify-between bg-slate-50 px-3.5 py-2.5 rounded-xl border border-slate-200">
+          <span class="font-bold text-sm text-slate-800">${m.name}</span>
+          <div class="flex items-center gap-2">
+            <label class="text-xs text-slate-500">${t('personUnit')}:</label>
+            <input type="number" step="0.5" min="0" value="${m.count}" onchange="updateMemberCount('${m.id}', this.value)" class="w-16 px-2 py-1 rounded-lg border border-slate-300 text-center font-bold text-sm bg-white" />
+            ${group.members.length > 1 ? `
+              <button onclick="removeMember('${m.id}')" class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 flex items-center justify-center text-xs" title="${t('removeMemberTooltip')}">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.updateMemberCount = function(memberId, newCount) {
+      const group = getActiveGroup();
+      const member = group.members.find(m => m.id === memberId);
+      if (member) {
+        member.count = Math.max(0, parseFloat(newCount) || 0);
+        saveState();
+        renderApp();
+      }
+    };
+
+    window.addMemberToCurrentGroup = function() {
+      const nameInput = document.getElementById('new-member-name');
+      const countInput = document.getElementById('new-member-count');
+      const name = nameInput ? nameInput.value.trim() : '';
+      const count = countInput ? (parseFloat(countInput.value) || 2) : 2;
+
+      if (!name) {
+        showToast(t('toastEnterMemberName'), true);
+        return;
+      }
+
+      const group = getActiveGroup();
+      if (!group) return;
+      
+      if (!group.members) {
+        group.members = [];
+      }
+
+      group.members.push({ id: 'm_' + Date.now() + '_' + Math.floor(Math.random()*1000), name, count });
+
+      if (nameInput) nameInput.value = '';
+      if (countInput) countInput.value = '2';
+      
+      saveState();
+      renderManageMembersList();
+      renderApp();
+      showToast(`+ ${name}`);
+    };
+
+    window.removeMember = function(memberId) {
+      const group = getActiveGroup();
+      if (group.members.length <= 1) return;
+      group.members = group.members.filter(m => m.id !== memberId);
+      saveState();
+      renderManageMembersList();
+      renderApp();
+    };
+
+    window.openNewGroupModal = function() {
+      openModal('new-group-modal');
+    };
+
+    window.createNewGroup = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('ng-name').value.trim();
+      const place = document.getElementById('ng-place').value.trim();
+      const membersRaw = document.getElementById('ng-members').value;
+
+      const memberNames = membersRaw.split(',').map(s => s.trim()).filter(Boolean);
+      if (!name || memberNames.length === 0) {
+        showToast(t('toastEnterGroupDetails'), true);
+        return;
+      }
+
+      const newGroup = {
+        id: 'grp_' + Date.now(),
+        name,
+        place,
+        members: memberNames.map((mName, idx) => ({ id: 'm_' + Date.now() + '_' + idx, name: mName, count: 2 })),
+        expenses: []
+      };
+
+      appState.groups.push(newGroup);
+      appState.activeGroupId = newGroup.id;
+      saveState();
+      renderApp();
+      closeModal('new-group-modal');
+      e.target.reset();
+      showToast(`"${name}" ✓`);
+    };
+
+    window.openDeleteGroupModal = function() {
+      const current = getActiveGroup();
+      if (!current) {
+        showToast(t('toastNoGroupSelected'), true);
+        return;
+      }
+      const label = current.place ? `${current.name} (${current.place})` : current.name;
+      document.getElementById('delete-group-target-name').textContent = label;
+      openModal('delete-group-modal');
+    };
+
+    window.confirmDeleteCurrentGroup = function() {
+      const current = getActiveGroup();
+      if (!current) return;
+
+      const deletedName = current.name;
+      appState.groups = appState.groups.filter(g => g.id !== current.id);
+      appState.activeGroupId = appState.groups.length > 0 ? appState.groups[0].id : null;
+      saveState();
+      renderApp();
+      closeModal('delete-group-modal');
+      showToast(`"${deletedName}" 🗑️`);
+    };
+
+    function buildSummaryText() {
+      const group = getActiveGroup();
+      if (!group) return '';
+      const s = calculateGroupSummary(group);
+
+      let lines = [];
+      lines.push(`📊 *${group.name}* ${group.place ? `(${group.place})` : ''} - PANDAV PANCHAYAT`);
+      lines.push(`━━━━━━━━━━━━━━━━━━━━`);
+      lines.push(`💰 *${t('overallExpenseLabel')}:* ${formatMoney(s.overallExpense)}`);
+      lines.push(`👥 *${t('totalPersonsLabel')}:* ${s.totalMembers}`);
+      lines.push(`👤 *${t('perPersonLabel')}:* ${formatMoney(s.perPersonCost)}`);
+      lines.push(``);
+      lines.push(`📋 *${t('waFamilyBalanceTitle')}*`);
+
+      s.memberStats.forEach(m => {
+        if (m.netBalance > 0.01) {
+          lines.push(`✅ *${m.name}* (${m.count} ${t('personUnit')}): +${formatMoney(m.netBalance)} *(${t('statusToReceive')})* [${t('waPaidShort')} ${formatMoney(m.paid)}]`);
+        } else if (m.netBalance < -0.01) {
+          lines.push(`🔻 *${m.name}* (${m.count} ${t('personUnit')}): -${formatMoney(Math.abs(m.netBalance))} *(${t('statusToPay')})* [${t('waPaidShort')} ${formatMoney(m.paid)}]`);
+        } else {
+          lines.push(`➖ *${m.name}* (${m.count} ${t('personUnit')}): ₹0 *(${t('statusSettled')})*`);
+        }
+      });
+
+      if (s.settlements.length > 0) {
+        lines.push(``);
+        lines.push(`🤝 *${t('waWhoPaysWhom')}*`);
+        s.settlements.forEach(st => {
+          lines.push(`➡️ *${st.from}* ➡️ *${st.to}* — *${formatMoney(st.amount)}* (${t('willPayTo')})`);
+        });
+      }
+
+      return lines.join('\n');
+    }
+
+    function copyTextFallback(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(t('toastCopied'));
+      } catch (err) {
+        showToast(t('toastCopyError'), true);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    window.copySettlementText = function() {
+      const text = buildSummaryText();
+      copyTextFallback(text);
+    };
+
+    window.shareOnWhatsApp = function() {
+      const text = buildSummaryText();
+      copyTextFallback(text);
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+    };
+
+    window.exportToCSV = function() {
+      const group = getActiveGroup();
+      if (!group) return;
+      const s = calculateGroupSummary(group);
+      const members = group.members;
+
+      let rows = [];
+      rows.push([t('colParticulars'), ...members.map(m => m.name), t('colTotalAmount')]);
+
+      group.expenses.forEach(exp => {
+        let rowTotal = 0;
+        const vals = members.map(m => {
+          const v = parseFloat(exp.payments?.[m.id]) || 0;
+          rowTotal += v;
+          return v;
+        });
+        rows.push([exp.title, ...vals, rowTotal]);
+      });
+
+      rows.push([t('rowTotalPaid'), ...s.memberStats.map(m => m.paid), s.overallExpense]);
+      rows.push([t('rowPersons'), ...s.memberStats.map(m => m.count), s.totalMembers]);
+      rows.push([t('rowFamilyTotalExpense'), ...s.memberStats.map(m => m.expectedShare.toFixed(2)), s.perPersonCost.toFixed(2)]);
+      rows.push([t('rowNetBalance'), ...s.memberStats.map(m => m.netBalance.toFixed(2)), '']);
+
+      const csvContent = '\uFEFF' + rows.map(r => r.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${group.name}_Expense_Summary.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast(t('toastCsvDownloaded'));
+    };
+
+    window.downloadSourceHTML = function() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'index.html';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast('index.html ડાઉનલોડ થઈ ગઈ!');
+    };
+
+    window.downloadManifestJSON = function() {
+      const manifest = {
+        name: "PANDAV PANCHAYAT",
+        short_name: "PANDAV PANCHAYAT",
+        description: "Group Expense & Trip Splitter",
+        start_url: "./index.html",
+        display: "standalone",
+        background_color: "#f3f4f6",
+        theme_color: "#065f46",
+        orientation: "portrait",
+        icons: [
+          {
+            src: "https://placehold.co/192x192/065f46/ffffff?text=PP",
+            sizes: "192x192",
+            type: "image/png"
+          },
+          {
+            src: "https://placehold.co/512x512/065f46/ffffff?text=PP",
+            sizes: "512x512",
+            type: "image/png"
+          }
+        ]
+      };
+      const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'manifest.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast('manifest.json ડાઉનલોડ થઈ ગઈ!');
+    };
+
+    applyTranslations();
+    renderApp();
+    initCloudStorage();
+  </script>
+
+</body></html>
